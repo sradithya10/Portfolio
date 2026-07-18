@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sathur Raghuraman Adithya — SEO Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14171F;
+    --ink-soft:#2A2D33;
+    --paper:#ECEAE1;
+    --paper-2:#E1DECF;
+    --rule:#C7C3B4;
+    --green:#2F7A5C;
+    --green-deep:#1F5B43;
+    --amber:#B5722B;
+    --grey:#6E7278;
+    --white:#FBFAF6;
+    --max:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 1px 1px, rgba(20,23,31,0.05) 1px, transparent 0) 0 0/16px 16px,
+      var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+  a{color:inherit;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  ::selection{background:var(--green); color:var(--white);}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity 0.7s ease, transform 0.7s ease;}
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(236,234,225,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px 28px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  .nav-mark{color:var(--green-deep); font-weight:600;}
+  .nav-links{display:flex; gap:22px;}
+  .nav-links a{text-decoration:none; color:var(--grey); position:relative; padding-bottom:2px;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a::after{
+    content:''; position:absolute; left:0; right:100%; bottom:-2px; height:1px; background:var(--ink);
+    transition:right 0.25s ease;
+  }
+  .nav-links a:hover::after{right:0;}
+  @media (max-width:680px){ .nav-links{display:none;} }
+
+  /* ---------- MASTHEAD ---------- */
+  .masthead{border-bottom:3px solid var(--ink); padding-top:26px;}
+  .masthead-top{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--grey);
+    border-bottom:1px solid var(--rule);
+    padding-bottom:10px;
+  }
+  .masthead-title{text-align:center; padding:26px 0 20px;}
+  .masthead-title h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:700;
+    font-size:clamp(36px, 6.4vw, 70px);
+    letter-spacing:-0.015em;
+    margin:0 0 8px;
+    line-height:1.02;
+  }
+  .masthead-title p{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--green-deep);
+    margin:0;
+  }
+  .masthead-rule{
+    display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--ink);
+    padding:9px 0 22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--grey);
+    flex-wrap:wrap; gap:8px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:58px 0 60px;}
+  .hero-kicker{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--green-deep);
+    margin:0 0 18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .hero-kicker::before{content:''; width:22px; height:1px; background:var(--green-deep); display:inline-block;}
+
+  .standfirst{
+    display:flex; gap:16px;
+    max-width:760px;
+    margin:0 0 44px;
+  }
+  .standfirst .cap{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:64px;
+    line-height:0.8;
+    color:var(--green-deep);
+    padding-top:8px;
+  }
+  .standfirst p{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(19px, 2.4vw, 25px);
+    line-height:1.5;
+    margin:0;
+  }
+  .standfirst em{font-style:italic; color:var(--green-deep);}
+
+  .serp{
+    background:var(--white);
+    border:1px solid var(--rule);
+    border-radius:6px;
+    box-shadow:0 18px 40px -22px rgba(20,23,31,0.35), 0 1px 0 var(--rule);
+    overflow:hidden;
+  }
+  .serp-bar{
+    display:flex; align-items:center; gap:12px;
+    padding:14px 20px;
+    border-bottom:1px solid var(--rule);
+    background:var(--paper-2);
+  }
+  .serp-dots{display:flex; gap:5px;}
+  .serp-dots span{width:8px; height:8px; border-radius:50%; background:var(--rule); display:block;}
+  .serp-dots span:nth-child(1){background:#D48383;}
+  .serp-dots span:nth-child(2){background:#D9BE7A;}
+  .serp-dots span:nth-child(3){background:#8FBBA0;}
+  .serp-query{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px; color:var(--ink);
+    background:var(--white);
+    border:1px solid var(--rule);
+    border-radius:20px;
+    padding:6px 16px; flex:1;
+  }
+  .serp-results{padding:24px 22px 28px;}
+  .serp-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; color:var(--grey);
+    margin:0 0 18px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px;
+  }
+  .serp-result{padding:18px 0; border-bottom:1px dashed var(--rule);}
+  .serp-result:last-child{border-bottom:none;}
+  .serp-result.rank1{
+    display:grid; grid-template-columns:1fr 132px; gap:18px; align-items:center;
+    background:linear-gradient(90deg, rgba(47,122,92,0.07), transparent);
+    border-left:3px solid var(--green);
+    padding-left:18px; padding-right:6px;
+    margin-left:-18px;
+    border-radius:0 4px 4px 0;
+  }
+  .serp-badge{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--white); background:var(--green);
+    padding:2px 7px; border-radius:3px; margin-bottom:8px;
+  }
+  .serp-badge.faded{background:var(--grey);}
+  .serp-url{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--green-deep); margin:0 0 4px;}
+  .serp-h{font-family:'Fraunces', serif; font-weight:600; font-size:19px; margin:0 0 6px;}
+  .serp-desc{font-size:14px; color:var(--ink-soft); line-height:1.55; margin:0; max-width:560px;}
+  .serp-result.competitor .serp-h{color:var(--grey); font-weight:500;}
+  .serp-result.competitor .serp-url{color:var(--grey);}
+  .serp-result.competitor .serp-desc{color:var(--grey);}
+
+  .spark{width:132px; text-align:center;}
+  .spark svg{width:100%; height:auto; display:block;}
+  .spark .spark-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px; color:var(--green-deep); margin-top:4px; letter-spacing:0.04em;
+  }
+  @media (max-width:560px){
+    .serp-result.rank1{grid-template-columns:1fr;}
+    .spark{width:100%; margin-top:10px;}
+  }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:56px 0;}
+  .section-head{
+    display:flex; align-items:baseline; gap:14px;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:11px; margin-bottom:34px;
+  }
+  .section-num{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--green);}
+  .section-head h2{
+    font-family:'Fraunces', serif; font-weight:700;
+    font-size:clamp(23px, 3vw, 31px); margin:0; letter-spacing:-0.01em;
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .byline{
+    display:grid; grid-template-columns:200px 1fr; gap:26px;
+    padding:28px 20px; margin:0 -20px;
+    border-bottom:1px solid var(--rule);
+    border-radius:4px;
+    transition:background 0.25s ease;
+  }
+  .byline:hover{background:rgba(47,122,92,0.05);}
+  .byline:first-child{padding-top:6px;}
+  .byline:last-child{border-bottom:none;}
+  .byline-meta{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--grey); line-height:1.7;}
+  .byline-meta .dates{color:var(--amber); display:block; margin-top:4px;}
+  .byline-body h3{font-family:'Fraunces', serif; font-weight:600; font-size:21px; margin:0 0 4px;}
+  .byline-body .org{font-size:13px; color:var(--grey); margin:0 0 14px;}
+  .byline-body ul{margin:0; padding-left:18px; font-size:14.5px; line-height:1.75; color:var(--ink-soft);}
+  .byline-body li{margin-bottom:6px;}
+  @media (max-width:640px){ .byline{grid-template-columns:1fr; gap:10px; padding:22px 4px; margin:0;} }
+
+  /* ---------- STATS ---------- */
+  .stats{display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:6px; overflow:hidden;}
+  .stat{background:var(--white); padding:30px 24px; transition:background 0.25s ease;}
+  .stat:hover{background:var(--paper-2);}
+  .stat .num{font-family:'Fraunces', serif; font-weight:700; font-size:40px; color:var(--green-deep); line-height:1; margin-bottom:10px;}
+  .stat .label{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--grey); line-height:1.55;}
+  @media (max-width:640px){ .stats{grid-template-columns:1fr;} }
+
+  /* ---------- DIGITAL ACHIEVEMENTS ---------- */
+  .events{display:grid; grid-template-columns:repeat(4, 1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:6px; overflow:hidden;}
+  .event{background:var(--white); padding:28px 20px; transition:background 0.25s ease;}
+  .event:hover{background:var(--paper-2);}
+  .event .metric{font-family:'Fraunces', serif; font-weight:700; font-size:30px; color:var(--green-deep); line-height:1; margin-bottom:10px;}
+  .event .name{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--grey); line-height:1.5;}
+  @media (max-width:760px){ .events{grid-template-columns:repeat(2, 1fr);} }
+  @media (max-width:460px){ .events{grid-template-columns:1fr;} }
+
+  /* ---------- SKILLS / TOOLS ---------- */
+  .data-block{margin-bottom:28px;}
+  .data-block:last-child{margin-bottom:0;}
+  .data-block .dt{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--grey); margin-bottom:11px;}
+  .chips{display:flex; flex-wrap:wrap; gap:9px;}
+  .chip{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:7px 13px; border:1px solid var(--ink); border-radius:2px;
+    background:var(--white);
+    transition:background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+  .chip:hover{background:var(--ink); color:var(--paper); transform:translateY(-1px);}
+  .two-col{display:grid; grid-template-columns:1.1fr 0.9fr; gap:52px;}
+  @media (max-width:760px){ .two-col{grid-template-columns:1fr; gap:36px;} }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-row{display:flex; justify-content:space-between; gap:16px; padding:16px 0; border-bottom:1px solid var(--rule); font-size:14.5px;}
+  .edu-row:last-child{border-bottom:none;}
+  .edu-row .deg{font-weight:600;}
+  .edu-row .inst{color:var(--grey); font-size:13px;}
+  .edu-row .yr{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--amber); white-space:nowrap;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink); color:var(--paper); padding:58px 0 36px; margin-top:20px;}
+  footer .section-head{border-bottom-color:rgba(251,250,246,0.25);}
+  footer .section-head h2{color:var(--paper);}
+  footer .section-num{color:#7FBE9E;}
+  .foot-line{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    font-size:clamp(20px, 2.6vw, 27px); line-height:1.5;
+    max-width:640px; margin:0 0 40px; color:#EDEBE0;
+  }
+  .contact-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:26px; margin-bottom:38px;}
+  @media (max-width:640px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact-item .k{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#8B8E94; margin-bottom:7px;}
+  .contact-item .v{font-family:'Fraunces', serif; font-size:18px;}
+  .contact-item .v a{text-decoration:none; border-bottom:1px solid rgba(251,250,246,0.35); transition:border-color 0.2s ease;}
+  .contact-item .v a:hover{border-bottom-color:var(--paper);}
+  .foot-rule{
+    border-top:1px solid rgba(251,250,246,0.2); padding-top:18px;
+    font-family:'IBM Plex Mono', monospace; font-size:11px; color:#8B8E94;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-mark">S.R.A.</span>
+    <div class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#digital-achievements">Digital</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="masthead">
+  <div class="wrap masthead-top">
+    <span>Chennai Edition</span>
+    <span>Organic &amp; Technical SEO</span>
+    <span id="todayDate">—</span>
+  </div>
+  <div class="masthead-title">
+    <h1>Sathur Raghuraman Adithya</h1>
+    <p>SEO Specialist — On-Page · Technical · Search Performance</p>
+  </div>
+  <div class="wrap masthead-rule">
+    <span>Vol. 5 — 5+ Years in Circulation</span>
+    <span>Chennai, India</span>
+    <span>+91 98841 07447</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <p class="hero-kicker reveal">Above the fold</p>
+
+    <div class="standfirst reveal">
+      <span class="cap">S</span>
+      <p>EO specialist with 5+ years driving organic growth through on-page, technical, and off-page optimisation — proven across <em>high-volume, high-traffic news properties</em> where every page counts.</p>
+    </div>
+
+    <div class="serp reveal">
+      <div class="serp-bar">
+        <div class="serp-dots"><span></span><span></span><span></span></div>
+        <div class="serp-query">seo specialist for high-traffic news publishers</div>
+      </div>
+      <div class="serp-results">
+        <p class="serp-meta"><span>About 47 candidates</span><span>Ranked by relevance, experience &amp; results</span></p>
+
+        <div class="serp-result rank1">
+          <div>
+            <span class="serp-badge">Position 1 · Organic</span>
+            <p class="serp-url">linkedin.com/in/sathur-raghuraman-adithya-aa049484</p>
+            <h3 class="serp-h">Sathur Raghuraman Adithya — Senior SEO Analyst, The New Indian Express</h3>
+            <p class="serp-desc">Monitors organic search performance across high-traffic news properties with GSC, GA4, Looker Studio and SEMrush. Runs technical audits covering crawlability, indexation, canonicalisation, Core Web Vitals and structured data.</p>
+          </div>
+          <div class="spark">
+            <svg viewBox="0 0 120 48" fill="none">
+              <polyline points="2,40 20,36 38,30 56,32 74,20 92,16 118,4" stroke="#2F7A5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="118" cy="4" r="3.5" fill="#2F7A5C"/>
+            </svg>
+            <div class="spark-label">Organic traffic ↑ 40%</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head reveal"><span class="section-num">01</span><h2>Work Experience</h2></div>
+
+    <div class="byline reveal">
+      <div class="byline-meta">Chennai, India<span class="dates">Jun 2026 — Present</span></div>
+      <div class="byline-body">
+        <h3>Senior SEO Analyst</h3>
+        <p class="org">The New Indian Express</p>
+        <ul>
+          <li>Monitored and analysed organic search performance across high-traffic news properties using Google Search Console, GA4, Looker Studio and SEMrush.</li>
+          <li>Developed SEO performance dashboards and recurring reports supporting editorial and business decision-making.</li>
+          <li>Conducted keyword research, SERP analysis and competitor benchmarking to identify traffic growth opportunities.</li>
+          <li>Performed technical SEO audits covering crawlability, indexing, canonicalisation, Core Web Vitals and structured data.</li>
+          <li>Partnered with editorial and product teams to implement recommendations that improved discoverability and engagement.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="byline reveal">
+      <div class="byline-meta">Chennai, India<span class="dates">Jun 2023 — Jun 2026</span></div>
+      <div class="byline-body">
+        <h3>Content SEO Specialist</h3>
+        <p class="org">The Hindu Group</p>
+        <ul>
+          <li>Executed on-page SEO strategies — meta optimisation, header structuring, internal linking — improving organic visibility by ~40%.</li>
+          <li>Conducted regular technical SEO audits, identifying and fixing crawl errors, indexing issues and broken links.</li>
+          <li>Optimised site performance and Core Web Vitals, improving page speed and user experience.</li>
+          <li>Implemented structured content strategies aligned with keyword intent and search demand.</li>
+          <li>Worked on large-scale websites with thousands of pages, ensuring SEO consistency and performance.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="byline reveal">
+      <div class="byline-meta">Bengaluru, India<span class="dates">Feb–Apr 2020, Jul 2021–Dec 2022</span></div>
+      <div class="byline-body">
+        <h3>SEO Analyst</h3>
+        <p class="org">Sportskeeda</p>
+        <ul>
+          <li>Performed keyword research and mapping to support SEO-driven content strategy.</li>
+          <li>Optimised articles for rankings through on-page SEO improvements and content structuring.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="section-head reveal"><span class="section-num">02</span><h2>Key Achievements</h2></div>
+    <div class="stats reveal">
+      <div class="stat">
+        <div class="num">~40%</div>
+        <div class="label">Increase in organic traffic visibility through SEO optimisation initiatives</div>
+      </div>
+      <div class="stat">
+        <div class="num">↓</div>
+        <div class="label">Crawl errors reduced and indexing efficiency improved through technical SEO fixes</div>
+      </div>
+      <div class="stat">
+        <div class="num">5+</div>
+        <div class="label">Years across high-volume, thousands-of-pages news &amp; content platforms</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="digital-achievements">
+    <div class="section-head reveal"><span class="section-num">03</span><h2>Digital Achievements</h2></div>
+    <div class="events reveal">
+      <div class="event">
+        <div class="metric">2M+</div>
+        <div class="name">FIFA World Cup Final — page views</div>
+      </div>
+      <div class="event">
+        <div class="metric">344K+</div>
+        <div class="name">IPL Auction — page views</div>
+      </div>
+      <div class="event">
+        <div class="metric">2M+</div>
+        <div class="name">Cricket World Cup Final — page views</div>
+      </div>
+      <div class="event">
+        <div class="metric">200K+</div>
+        <div class="name">Wimbledon Final — page views</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head reveal"><span class="section-num">04</span><h2>Skills &amp; Tools</h2></div>
+    <div class="two-col reveal">
+      <div>
+        <div class="data-block">
+          <div class="dt">Key Skills</div>
+          <div class="chips">
+            <span class="chip">On-Page SEO</span>
+            <span class="chip">Technical SEO</span>
+            <span class="chip">Crawlability &amp; Indexation</span>
+            <span class="chip">Core Web Vitals</span>
+            <span class="chip">Keyword Research &amp; Mapping</span>
+            <span class="chip">SEO Audits &amp; Issue Resolution</span>
+            <span class="chip">Structured Data</span>
+            <span class="chip">Competitor Benchmarking</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="data-block">
+          <div class="dt">CMS &amp; Publishing</div>
+          <div class="chips"><span class="chip">Brightspot CMS</span><span class="chip">WordPress</span></div>
+        </div>
+        <div class="data-block">
+          <div class="dt">Analytics &amp; Reporting</div>
+          <div class="chips"><span class="chip">GA4</span><span class="chip">Google Search Console</span><span class="chip">Looker Studio</span></div>
+        </div>
+        <div class="data-block">
+          <div class="dt">SEO &amp; Content</div>
+          <div class="chips"><span class="chip">SEMrush</span><span class="chip">Ahrefs</span><span class="chip">Metadata Management</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head reveal"><span class="section-num">05</span><h2>Education</h2></div>
+    <div class="reveal">
+      <div class="edu-row">
+        <div><div class="deg">Bachelor in Electrical Engineering</div><div class="inst">Anna University, Tamil Nadu, India</div></div>
+        <div class="yr">Jun 2011 – Apr 2015</div>
+      </div>
+      <div class="edu-row">
+        <div><div class="deg">PGCE in Sport Management</div><div class="inst">Bournemouth University, United Kingdom</div></div>
+        <div class="yr">Sep 2017 – Nov 2019</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="section-num">06</span><h2>Get in Touch</h2></div>
+    <p class="foot-line reveal">"Quick learner, adaptable to algorithm updates and SEO trends" — always reading the next update before it ranks.</p>
+    <div class="contact-grid reveal">
+      <div class="contact-item">
+        <div class="k">Phone</div>
+        <div class="v"><a href="tel:+919884107447">+91 98841 07447</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="k">Email</div>
+        <div class="v"><a href="mailto:sradithya94@gmail.com">sradithya94@gmail.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="k">LinkedIn</div>
+        <div class="v"><a href="https://www.linkedin.com/in/sathur-raghuraman-adithya-aa049484/" target="_blank" rel="noopener">/sathur-raghuraman-adithya</a></div>
+      </div>
+    </div>
+    <div class="foot-rule">
+      <span>Sathur Raghuraman Adithya — SEO Specialist</span>
+      <span>Chennai, India</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('todayDate').textContent = new Date().toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' });
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll('.reveal');
+  if (prefersReduced) {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  }
+</script>
+
+</body>
+</html>
